@@ -29,7 +29,7 @@ class QuestionController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre question bien enregistrée.'
+                'Votre question a bien été enregistrée.'
             );
 
             $logger->debug('fin traitement formulaire ajout');
