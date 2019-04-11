@@ -1,0 +1,10 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+addQuestion:
+    path: /question/add
+    controller: App\Controller\QuestionController::add
+
+listeQuestion:
+    path: /admin/question/liste
+    controller: App\Controller\QuestionController::liste

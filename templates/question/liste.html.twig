@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block title %}
+  Traiter une question
+{% endblock %}
+{% block body %}
+  <h1>Liste des questions </h1>
+
+  <div class="well">
+    {{ form_start(form, {'attr': {'class': ''}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nom Prénom</th>
+          <th scope="col">Mail</th>
+          <th scope="col">Texte</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for question in form.questions %}
+
+          <tr>
+            <th scope="row">{{ liste[loop.index-1].id }}</th>
+            <td>{{ liste[loop.index-1].firstName }} {{ liste[loop.index-1].lastName }}</td>
+            <td>{{ liste[loop.index-1].mail }}</td>
+            <td>{{ liste[loop.index-1].text }}</td>
+            <td>
+                {{ form_errors(question.status) }}
+                {{ form_widget(question.status, {'attr': {'class': 'form-control'}}) }}
+            </td>
+            <td>
+                {{ form_widget(question.Modifier, {'attr': {'class': 'btn btn-primary'}}) }}
+            </td>
+
+
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+
+
+      {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+
+  </div>
+{% endblock %}
